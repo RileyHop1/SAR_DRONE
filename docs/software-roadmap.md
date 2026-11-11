@@ -8,9 +8,15 @@ The six goals discussed by the team are grouped into three sections below. We wi
 
 Follow the [software development conventions](software-development-conventions.md) and [C++ conventions](cpp-conventions.md).
 
+## Timeline at a glance
+
+![Three phases in order. Development foundation and ROS setup is the current focus, followed by simulation and SAR interfaces, then the baseline SAR mission and onboard integration.](assets/software-roadmap.svg)
+
+The diagram shows the planned sequence. Dates depend on the team’s schedule and confirmed demo deadline.
+
 ## 1. Development foundation and ROS setup
 
-Establish a repeatable way for the team to develop, check, build, and run the software.
+Establish a repeatable way for the team to develop, check, build, deploy, and run the software. This is the current focus. Tool suggestions and open decisions remain provisional until their implementation tickets are worked through.
 
 ### Already established
 
@@ -29,7 +35,9 @@ Successful image building and publishing still need verified run evidence. The R
 - Provide simple local check, format, and test commands, plus shared VS Code configuration.
 - Configure Pi, Jetson, and laptop development environments and dependencies.
 - Establish package structure, launch configuration, and basic ROS publisher/subscriber communication.
-- Document teammate setup and how to reproduce CI checks locally.
+- Establish an onboard process to pull a selected container image from GHCR, configure it, and start it on the drone. Begin with the Pi and plan equivalent support for the Jetson.
+- Verify installation, startup, version reporting, update health checks, and recovery to a working version.
+- Document teammate setup, onboard installation, and how to reproduce CI checks locally.
 
 ### Proposals and open decisions
 
@@ -37,7 +45,17 @@ Successful image building and publishing still need verified run evidence. The R
 - Candidate local commands are `make lint`, `make format`, and `make test`.
 - Define package ownership, platform compatibility, and how dependencies are pinned.
 
-The initial completion expectation is that a teammate can build the project, run its checks, and demonstrate basic ROS communication using the documented steps.
+### Deployment proposals and open decisions
+
+- A systemd service is a candidate for managing onboard image retrieval and setup.
+- How does the Pi discover an approved GHCR tag or digest, and what triggers an update check?
+- How are Pi and Jetson releases kept compatible?
+- How are registry access and downloads configured?
+- How do we confirm the aircraft is grounded, disarmed, and outside an active mission before activation?
+- What health checks confirm success, and what triggers rollback?
+- How do updates recover from interrupted downloads, unavailable networking, power loss, or application failure?
+
+The initial completion expectation is that a teammate can build the project, run its checks, pull and start a selected image on the onboard computer, identify the running version, and demonstrate basic ROS communication using the documented steps.
 
 ## 2. Simulation and SAR interfaces
 
@@ -75,18 +93,8 @@ Build and verify the search mission, then demonstrate the complete flow on the a
 - Run packages on the Pi and Jetson and integrate the physical cameras and Pixhawk.
 - Confirm Ethernet switch ports and video routing, and establish the Pi–Pixhawk UART link through TELEM2.
 - Define logs, recordings, fault reporting, storage limits, and software version identification.
-- Develop the Pi's systemd-based image update process and agree on the Jetson deployment process.
 - Test startup, communication loss, recovery, and progression from bench testing to controlled flight.
 - Keep adding unit, integration, simulation, and hardware tests as behavior is implemented.
-
-### Deployment decisions
-
-- How does the Pi discover an approved GHCR tag or digest, and what triggers an update check?
-- How are Pi and Jetson releases kept compatible?
-- How are registry access and downloads configured?
-- How do we confirm the aircraft is grounded, disarmed, and outside an active mission before activation?
-- What health checks confirm success, and what triggers rollback?
-- How do updates recover from interrupted downloads, unavailable networking, power loss, or application failure?
 
 ### Open acceptance decisions
 

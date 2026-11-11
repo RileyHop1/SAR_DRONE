@@ -15,3 +15,4 @@ nav:
       - Development Process: software-development-conventions.md
       - Git Conventions: git-conventions.md
       - C++ Conventions: cpp-conventions.md
+      - Python Conventions: python-conventions.md

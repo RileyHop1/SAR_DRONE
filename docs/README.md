@@ -39,7 +39,7 @@ Validation will progress through software and simulation checks, bench integrati
 2. Read the [software roadmap](software-roadmap.md) for goals, current work, and open decisions.
 3. Follow the [Git conventions](git-conventions.md) for branches, commits, and pull requests.
 4. Follow the [software development conventions](software-development-conventions.md) for interface documentation, tests, implementation, and review.
-5. Use the [C++ conventions](cpp-conventions.md) when writing C++.
+5. Follow the conventions for the language you are writing. [C++](cpp-conventions.md) · [Python](python-conventions.md)
 
 ## Proposed website sections
 
@@ -50,7 +50,7 @@ This is a provisional navigation structure for team review. Entries marked plann
 | Project overview | Purpose, goals, scope, operator workflow, and project status | This home page |
 | Getting started | Required tools, local setup, container builds, first ROS run, and troubleshooting | Planned |
 | Architecture and interfaces | System diagram, computer responsibilities, package structure, message definitions, and design decisions | Diagram tracked in JDR-32; website page planned |
-| Development guide | Git workflow, documentation-first development, testing workflow, naming, and formatting | [Git](git-conventions.md), [development](software-development-conventions.md), and [C++](cpp-conventions.md) conventions |
+| Development guide | Git workflow, documentation-first development, testing workflow, naming, and formatting | [Git](git-conventions.md), [development](software-development-conventions.md), [C++](cpp-conventions.md), and [Python](python-conventions.md) conventions |
 | Simulation and testing | Gazebo/PX4 setup, test commands, scenarios, requirement traceability, and results | Practical guides planned |
 | Deployment and operation | Image publishing, Pi/Jetson startup, updates, health checks, rollback, and evidence retrieval | Planned |
 | Roadmap and project status | Major goals, dependencies, open decisions, and verified progress | [Software roadmap](software-roadmap.md) |

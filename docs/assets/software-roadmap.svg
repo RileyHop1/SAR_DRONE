@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 388" role="img" aria-labelledby="title description">
+  <title id="title">SAR drone software roadmap</title>
+  <desc id="description">Development foundation and ROS setup is the current focus. Simulation and SAR interfaces come next, with interface design in parallel with simulation setup. The final phase is the baseline SAR mission and onboard integration. Early hardware checks can overlap simulation.</desc>
+  <rect width="700" height="388" rx="12" fill="#f4f7fa"/>
+  <path d="M42 65V295" stroke="#8299af" stroke-width="2"/>
+  <g font-family="system-ui, sans-serif">
+    <g fill="#245b88">
+      <circle cx="42" cy="62" r="17"/><circle cx="42" cy="169" r="17"/><circle cx="42" cy="276" r="17"/>
+    </g>
+    <g fill="white" text-anchor="middle" font-weight="700" font-size="16">
+      <text x="42" y="68">1</text><text x="42" y="175">2</text><text x="42" y="282">3</text>
+    </g>
+    <rect x="72" y="20" width="608" height="94" rx="8" fill="#e3effa" stroke="#527da4"/>
+    <rect x="72" y="127" width="608" height="94" rx="8" fill="white" stroke="#c4d0db"/>
+    <rect x="72" y="234" width="608" height="94" rx="8" fill="white" stroke="#c4d0db"/>
+    <g fill="#172e45" font-size="23" font-weight="700">
+      <text x="92" y="52">Development foundation and ROS setup</text>
+      <text x="92" y="159">Simulation and SAR interfaces</text>
+      <text x="92" y="266">Baseline SAR mission and onboard integration</text>
+    </g>
+    <g fill="#304c64" font-size="17">
+      <text x="92" y="80">Current focus · Tests, linting, ROS setup, and GHCR image pull</text>
+      <text x="92" y="102">Goal · Run a selected image onboard and verify ROS communication</text>
+      <text x="92" y="187">Gazebo and PX4 SITL · Basic flight and telemetry</text>
+      <text x="92" y="209">Design SAR interfaces alongside simulation setup</text>
+      <text x="92" y="294">Search, detect, estimate location, and report</text>
+      <text x="92" y="316">Verify on the bench, then in supervised flight</text>
+      <text x="72" y="362">Early camera and hardware checks can overlap simulation.</text>
+    </g>
+  </g>
+</svg>
