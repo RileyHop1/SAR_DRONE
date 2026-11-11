@@ -1,0 +1,13 @@
+name: Actions queue test
+
+on:
+  push:
+    branches: [actions-queue-test]
+
+permissions: {}
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "GitHub Actions started the job"
