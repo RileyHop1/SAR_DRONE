@@ -2,6 +2,12 @@
 
 ROS 2 Jazzy software for an autonomous search-and-rescue drone.
 
+## Documentation
+
+- [Documentation home](https://rileyhop1.github.io/SAR_DRONE/) for available published versions.
+- [Development documentation](https://rileyhop1.github.io/SAR_DRONE/development/) for the project overview, software roadmap, and contributing guides.
+- [Documentation source](docs/README.md) for the Markdown files in this repository.
+
 ## Architecture
 
 - **Raspberry Pi:** mission management and communication with PX4.
