@@ -35,7 +35,7 @@ Validation will progress through software and simulation checks, bench integrati
 
 ## Start here
 
-1. Read the introduction above and the [repository README](../README.md) for the project and code layout.
+1. Read the introduction above and the [repository README](https://github.com/RileyHop1/SAR_DRONE) for the project and code layout.
 2. Read the [software roadmap](software-roadmap.md) for goals, current work, and open decisions.
 3. Follow the [Git conventions](git-conventions.md) for branches, commits, and pull requests.
 4. Follow the [software development conventions](software-development-conventions.md) for interface documentation, tests, implementation, and review.
