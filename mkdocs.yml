@@ -1,0 +1,17 @@
+site_name: JDR SAR Drone
+site_description: Documentation for our autonomous search-and-rescue drone
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: readthedocs
+
+nav:
+  - Home: README.md
+  - Project Planning:
+      - Software Roadmap: software-roadmap.md
+  - Contributing:
+      - Development Process: software-development-conventions.md
+      - Git Conventions: git-conventions.md
+      - C++ Conventions: cpp-conventions.md
