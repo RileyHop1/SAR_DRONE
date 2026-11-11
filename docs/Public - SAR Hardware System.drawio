@@ -1,0 +1,1494 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="hardware-forward" name="Hardware system — forward flow">
+    <mxGraphModel dx="99750" dy="55850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1840" pageHeight="1700" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" style=";" />
+        <mxCell id="1" parent="0" style=";" />
+        <mxCell id="zone0" parent="1" style="html=1;whiteSpace=wrap;align=left;fontColor=#172B4D;spacing=8;fillColor=#F4F8FE;strokeColor=#94A3B8;dashed=1;dashPattern=8 5;verticalAlign=top;fontSize=32.0;fontStyle=1;strokeWidth=2;" value="Core — quad / VTOL" vertex="1">
+          <mxGeometry height="4252.799999999999" width="7091.200000000001" x="11356.160000000002" y="12768" as="geometry" />
+        </mxCell>
+        <mxCell id="zone1" parent="1" style="html=1;whiteSpace=wrap;align=left;fontColor=#172B4D;spacing=8;fillColor=#F8F5FC;strokeColor=#94A3B8;dashed=1;dashPattern=8 5;verticalAlign=top;fontSize=32.0;fontStyle=1;strokeWidth=2;" value="SAR module" vertex="1">
+          <mxGeometry height="2880" width="9923.840000000002" x="5690.880000000001" y="7603.200000000001" as="geometry" />
+        </mxCell>
+        <mxCell id="zone2" parent="1" style="html=1;whiteSpace=wrap;align=left;fontColor=#172B4D;spacing=8;fillColor=#F2FAF6;strokeColor=#94A3B8;dashed=1;dashPattern=8 5;verticalAlign=top;fontSize=32.0;fontStyle=1;strokeWidth=2;" value="Telemetry" vertex="1">
+          <mxGeometry height="1507.2" width="12756.480000000001" x="5690.880000000001" y="18460.8" as="geometry" />
+        </mxCell>
+        <mxCell id="zone3" parent="1" style="html=1;whiteSpace=wrap;align=left;fontColor=#172B4D;spacing=8;fillColor=#FFFAF0;strokeColor=#94A3B8;dashed=1;dashPattern=8 5;verticalAlign=top;fontSize=32.0;fontStyle=1;strokeWidth=2;" value="Power system" vertex="1">
+          <mxGeometry height="5625.6" width="21254.4" x="25.6" y="537.6" as="geometry" />
+        </mxCell>
+        <mxCell id="zone4" parent="1" style="html=1;whiteSpace=wrap;align=left;fontColor=#172B4D;spacing=8;fillColor=#FFF6F1;strokeColor=#94A3B8;dashed=1;dashPattern=8 5;verticalAlign=top;fontSize=32.0;fontStyle=1;strokeWidth=2;" value="Structural system" vertex="1">
+          <mxGeometry height="5625.6" width="1425.9199999999983" x="22686.72" y="537.6" as="geometry" />
+        </mxCell>
+        <object label="&lt;b&gt;Raspberry Pi 5&lt;/b&gt;&lt;br&gt;Coordinates missions and flight requests&lt;br&gt;&lt;br&gt;Control · PI&lt;br&gt;Brain&lt;br&gt;Slaves: FC: command recipient [S2], authority Q02&lt;br&gt;&lt;small&gt;S1, S2&lt;/small&gt;" component="PI" category="Control" source="S1, S2" tooltip="Brain | Slaves: FC: command recipient [S2], authority Q02" group="Core — quad / VTOL" id="device_PI">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#DAE8FC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="14421.760000000002" y="14454.400000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q01: Consider MAVLink or uXRCE-DDS; verify firmware, signal voltage, crossed TX/RX and ground. Confirm Pi header vs adapter." comment="Consider MAVLink or uXRCE-DDS; verify firmware, signal voltage, crossed TX/RX and ground. Confirm Pi header vs adapter." id="C01_a_port">
+          <mxCell parent="device_PI" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Confirm transport configuration and both network ports. This is a logical overlay, not an extra direct cable." comment="Confirm transport configuration and both network ports. This is a logical overlay, not an extra direct cable." id="C05_b_port">
+          <mxCell parent="device_PI" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Confirm connector, IP addressing and data flow isolation. Four endpoints require at least four switch ports." comment="Confirm connector, IP addressing and data flow isolation. Four endpoints require at least four switch ports." id="C09_b_port">
+          <mxCell parent="device_PI" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="USB-C&lt;br&gt;[S11]" kind="port" tooltip="Q16: Confirm USB-C current advertisement / PD behavior and actual maximum load." comment="Confirm USB-C current advertisement / PD behavior and actual maximum load." id="P06_b_port">
+          <mxCell parent="device_PI" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Pixhawk 6C Mini&lt;/b&gt;&lt;br&gt;Stabilizes flight; manages failsafes&lt;br&gt;&lt;br&gt;Control · FC&lt;br&gt;Brain&lt;br&gt;Slaves: ESC1–4 (proposed); M10 configuration undecided&lt;br&gt;&lt;small&gt;S1, S2&lt;/small&gt;" component="FC" category="Control" source="S1, S2" tooltip="Brain | Slaves: ESC1–4 (proposed); M10 configuration undecided" group="Core — quad / VTOL" id="device_FC">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#DAE8FC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="17254.4" y="13081.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="TELEM2&lt;br&gt;physical type&lt;br&gt;UNDECIDED" kind="port" tooltip="Q01: Consider MAVLink or uXRCE-DDS; verify firmware, signal voltage, crossed TX/RX and ground. Confirm Pi header vs adapter." comment="Consider MAVLink or uXRCE-DDS; verify firmware, signal voltage, crossed TX/RX and ground. Confirm Pi header vs adapter." id="C01_b_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q05: Manufacturer lists JST-GH-6P and UBX/NMEA. Confirm delivered cable, FC GPS port and compass bus; do not infer a pin map." comment="Manufacturer lists JST-GH-6P and UBX/NMEA. Confirm delivered cable, FC GPS port and compass bus; do not infer a pin map." id="C02_b_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q06: Prefer a supported serial RC interface after checking PX4 configuration, inversion and exact pins; PWM is not automatically selected." comment="Prefer a supported serial RC interface after checking PX4 configuration, inversion and exact pins; PWM is not automatically selected." id="C04_b_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q11: Decide whether HM30 needs a direct FC UART or telemetry is forwarded through Pi/network; avoid duplicate command sources." comment="Decide whether HM30 needs a direct FC UART or telemetry is forwarded through Pi/network; avoid duplicate command sources." id="C15_a_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q14: Verify PM07 analog sensing, POWER harness and exact FC revision; sensor outputs are not a digital bus by default." comment="Verify PM07 analog sensing, POWER harness and exact FC revision; sensor outputs are not a digital bus by default." id="P02_b_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="302" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A1_a_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A2_a_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A3_a_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="302" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A4_a_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="402" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Confirm FC port current budget and GNSS harness; document voltage and shared ground." comment="Confirm FC port current budget and GNSS harness; document voltage and shared ground." id="P11_a_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="502" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Confirm receiver supply rail, port load budget and fail behavior; FC feed is only a proposal." comment="Confirm receiver supply rail, port load budget and fail behavior; FC feed is only a proposal." id="P12_a_port">
+          <mxCell parent="device_FC" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="2" y="-96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Micro M10&lt;/b&gt;&lt;br&gt;Provides position and heading&lt;br&gt;&lt;br&gt;Sensing · GPS&lt;br&gt;Provider; control undecided&lt;br&gt;&lt;small&gt;S1, S5&lt;/small&gt;" component="GPS" category="Sensing" source="S1, S5" tooltip="Provider; control undecided | Slaves: None established" group="Core — quad / VTOL" id="device_GPS">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#E1D5E7;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="14421.760000000002" y="13081.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q05: Manufacturer lists JST-GH-6P and UBX/NMEA. Confirm delivered cable, FC GPS port and compass bus; do not infer a pin map." comment="Manufacturer lists JST-GH-6P and UBX/NMEA. Confirm delivered cable, FC GPS port and compass bus; do not infer a pin map." id="C02_a_port">
+          <mxCell parent="device_GPS" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Confirm FC port current budget and GNSS harness; document voltage and shared ground." comment="Confirm FC port current budget and GNSS harness; document voltage and shared ground." id="P11_b_port">
+          <mxCell parent="device_GPS" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;ER6 receiver&lt;/b&gt;&lt;br&gt;Receives pilot commands&lt;br&gt;&lt;br&gt;Radio · RX&lt;br&gt;Provider; control undecided&lt;br&gt;&lt;small&gt;S1, S6&lt;/small&gt;" component="RX" category="Radio" source="S1, S6" tooltip="Provider; control undecided | Slaves: None established" group="Core — quad / VTOL" id="device_RX">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#D5E8D4;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="14421.760000000002" y="15827.2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="RF&lt;br&gt;antenna" kind="port" tooltip="Q06: Confirm ELRS transmitter variant, matching firmware and region. RF blocks are antenna interfaces, not cable sockets." comment="Confirm ELRS transmitter variant, matching firmware and region. RF blocks are antenna interfaces, not cable sockets." id="C03_b_port">
+          <mxCell parent="device_RX" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q06: Prefer a supported serial RC interface after checking PX4 configuration, inversion and exact pins; PWM is not automatically selected." comment="Prefer a supported serial RC interface after checking PX4 configuration, inversion and exact pins; PWM is not automatically selected." id="C04_a_port">
+          <mxCell parent="device_RX" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Confirm receiver supply rail, port load budget and fail behavior; FC feed is only a proposal." comment="Confirm receiver supply rail, port load budget and fail behavior; FC feed is only a proposal." id="P12_b_port">
+          <mxCell parent="device_RX" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Pocket M2&lt;/b&gt;&lt;br&gt;Sends manual pilot commands&lt;br&gt;&lt;br&gt;Control · TX&lt;br&gt;Brain&lt;br&gt;Slaves: ER6 command link; binding Q06&lt;br&gt;&lt;small&gt;S1, S2&lt;/small&gt;" component="TX" category="Control" source="S1, S2" tooltip="Brain | Slaves: ER6 command link; binding Q06" group="Core — quad / VTOL" id="device_TX">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#DAE8FC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="11589.12" y="15827.2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="RF&lt;br&gt;antenna" kind="port" tooltip="Q06: Confirm ELRS transmitter variant, matching firmware and region. RF blocks are antenna interfaces, not cable sockets." comment="Confirm ELRS transmitter variant, matching firmware and region. RF blocks are antenna interfaces, not cable sockets." id="C03_a_port">
+          <mxCell parent="device_TX" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Orin Nano Super&lt;/b&gt;&lt;br&gt;Processes RGB and thermal imagery&lt;br&gt;&lt;br&gt;Control · JET&lt;br&gt;Brain&lt;br&gt;Slaves: THERM, RGB, SD (proposed; Q03–04)&lt;br&gt;&lt;small&gt;S1, S2&lt;/small&gt;" component="JET" category="Control" source="S1, S2" tooltip="Brain | Slaves: THERM, RGB, SD (proposed; Q03–04)" group="SAR module" id="device_JET">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#DAE8FC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="11589.12" y="9289.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Confirm transport configuration and both network ports. This is a logical overlay, not an extra direct cable." comment="Confirm transport configuration and both network ports. This is a logical overlay, not an extra direct cable." id="C05_a_port">
+          <mxCell parent="device_JET" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="USB type&lt;br&gt;UNDECIDED" kind="port" tooltip="Q04: Confirm MD 640 vs FlexMini, interface board and SDK. Consider USB UVC only after matching the delivered model." comment="Confirm MD 640 vs FlexMini, interface board and SDK. Consider USB UVC only after matching the delivered model." id="C06_b_port">
+          <mxCell parent="device_JET" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Verify switch capacity and Jetson carrier connector. Consider standard RJ45 with a matching camera adapter harness." comment="Verify switch capacity and Jetson carrier connector. Consider standard RJ45 with a matching camera adapter harness." id="C08_b_port">
+          <mxCell parent="device_JET" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q03: Consider SIYI SDK over Ethernet; alternatively FC UART control. Select exactly one control authority and arbitrate manual input." comment="Consider SIYI SDK over Ethernet; alternatively FC UART control. Select exactly one control authority and arbitrate manual input." id="C11_a_port">
+          <mxCell parent="device_JET" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q10: Confirm card host, boot vs evidence storage, native slot vs USB reader and endurance." comment="Confirm card host, boot vs evidence storage, native slot vs USB reader and endurance." id="C12_a_port">
+          <mxCell parent="device_JET" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q15: Confirm carrier-board input; do not apply module-level 5 V assumptions to the developer-kit connector." comment="Confirm carrier-board input; do not apply module-level 5 V assumptions to the developer-kit connector." id="P04_b_port">
+          <mxCell parent="device_JET" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q04: Verify exact interface board; never apply wide-range camera supply to USB power pins." comment="Verify exact interface board; never apply wide-range camera supply to USB power pins." id="P13_a_port">
+          <mxCell parent="device_JET" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="302" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;CAMCUDA MD 640&lt;/b&gt;&lt;br&gt;Captures thermal imagery&lt;br&gt;&lt;br&gt;Sensing · THERM&lt;br&gt;Slave proposed: JET&lt;br&gt;&lt;small&gt;S1, S2; Q04&lt;/small&gt;" component="THERM" category="Sensing" source="S1, S2; Q04" tooltip="Slave proposed: JET | Slaves: None established" group="SAR module" id="device_THERM">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#E1D5E7;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="8756.480000000001" y="7916.8" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="USB type&lt;br&gt;UNDECIDED" kind="port" tooltip="Q04: Confirm MD 640 vs FlexMini, interface board and SDK. Consider USB UVC only after matching the delivered model." comment="Confirm MD 640 vs FlexMini, interface board and SDK. Consider USB UVC only after matching the delivered model." id="C06_a_port">
+          <mxCell parent="device_THERM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q04: Verify exact interface board; never apply wide-range camera supply to USB power pins." comment="Verify exact interface board; never apply wide-range camera supply to USB power pins." id="P13_b_port">
+          <mxCell parent="device_THERM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;SIYI A8 Mini&lt;/b&gt;&lt;br&gt;Captures stabilized RGB imagery&lt;br&gt;&lt;br&gt;Sensing · RGB&lt;br&gt;Slave owner undecided&lt;br&gt;&lt;small&gt;S1, S2, S7&lt;/small&gt;" component="RGB" category="Sensing" source="S1, S2, S7" tooltip="Slave owner undecided | Slaves: None established" group="SAR module" id="device_RGB">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#E1D5E7;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="5923.84" y="7916.8" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Ethernet&lt;br&gt;connector&lt;br&gt;UNDECIDED" kind="port" tooltip="Q08: Confirm camera harness; select a compatible switch port. Ethernet capability does not imply RJ45 on the camera." comment="Confirm camera harness; select a compatible switch port. Ethernet capability does not imply RJ45 on the camera." id="C07_a_port">
+          <mxCell parent="device_RGB" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q03: Consider SIYI SDK over Ethernet; alternatively FC UART control. Select exactly one control authority and arbitrate manual input." comment="Consider SIYI SDK over Ethernet; alternatively FC UART control. Select exactly one control authority and arbitrate manual input." id="C11_b_port">
+          <mxCell parent="device_RGB" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Select approved regulator/rail and cable; PM-to-camera row is functional allocation, not approval for direct battery power." comment="Select approved regulator/rail and cable; PM-to-camera row is functional allocation, not approval for direct battery power." id="P14_b_port">
+          <mxCell parent="device_RGB" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;256 GB microSD&lt;/b&gt;&lt;br&gt;Stores companion data&lt;br&gt;&lt;br&gt;Storage · SD&lt;br&gt;Slave proposed: JET&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="SD" category="Storage" source="S1" tooltip="Slave proposed: JET | Slaves: None established" group="SAR module" id="device_SD">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#E1D5E7;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="14421.760000000002" y="7916.8" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="microSD&lt;br&gt;contacts" kind="port" tooltip="Q10: Confirm card host, boot vs evidence storage, native slot vs USB reader and endurance." comment="Confirm card host, boot vs evidence storage, native slot vs USB reader and endurance." id="C12_b_port">
+          <mxCell parent="device_SD" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Ethernet switch&lt;/b&gt;&lt;br&gt;Connects onboard network devices&lt;br&gt;&lt;br&gt;Network · SW&lt;br&gt;Peer; control undecided&lt;br&gt;&lt;small&gt;S1, S2&lt;/small&gt;" component="SW" category="Network" source="S1, S2" tooltip="Peer; control undecided | Slaves: None established" group="SAR module" id="device_SW">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#D5E8D4;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="8756.480000000001" y="9289.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q08: Confirm camera harness; select a compatible switch port. Ethernet capability does not imply RJ45 on the camera." comment="Confirm camera harness; select a compatible switch port. Ethernet capability does not imply RJ45 on the camera." id="C07_b_port">
+          <mxCell parent="device_SW" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Verify switch capacity and Jetson carrier connector. Consider standard RJ45 with a matching camera adapter harness." comment="Verify switch capacity and Jetson carrier connector. Consider standard RJ45 with a matching camera adapter harness." id="C08_a_port">
+          <mxCell parent="device_SW" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Confirm connector, IP addressing and data flow isolation. Four endpoints require at least four switch ports." comment="Confirm connector, IP addressing and data flow isolation. Four endpoints require at least four switch ports." id="C09_a_port">
+          <mxCell parent="device_SW" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q08: Verify cable pinout and integrated power pins before joining a generic switch to HM30." comment="Verify cable pinout and integrated power pins before joining a generic switch to HM30." id="C10_a_port">
+          <mxCell parent="device_SW" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Determine if hub replaces switch, complements it, or is omitted. Do not assume dual-camera hub equals a general switch." comment="Determine if hub replaces switch, complements it, or is omitted. Do not assume dual-camera hub equals a general switch." id="C16_b_port">
+          <mxCell parent="device_SW" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Choose actual switch and required regulator; do not infer PoE or passive powering." comment="Choose actual switch and required regulator; do not infer PoE or passive powering." id="P16_b_port">
+          <mxCell parent="device_SW" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;HM30 air unit&lt;/b&gt;&lt;br&gt;Transmits video and telemetry&lt;br&gt;&lt;br&gt;Radio · AIR&lt;br&gt;Peer; control undecided&lt;br&gt;&lt;small&gt;S1, S2, S8&lt;/small&gt;" component="AIR" category="Radio" source="S1, S2, S8" tooltip="Peer; control undecided | Slaves: None established" group="Telemetry" id="device_AIR">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#D5E8D4;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="11589.12" y="18774.4" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="GH1.25&lt;br&gt;8-pin&lt;br&gt;LAN/PWR" kind="port" tooltip="Q08: Verify cable pinout and integrated power pins before joining a generic switch to HM30." comment="Verify cable pinout and integrated power pins before joining a generic switch to HM30." id="C10_b_port">
+          <mxCell parent="device_AIR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="RF&lt;br&gt;antenna" kind="port" tooltip="Q09: Confirm kit contents, pairing, antenna connector and local RF configuration. These are antenna interfaces." comment="Confirm kit contents, pairing, antenna connector and local RF configuration. These are antenna interfaces." id="C13_a_port">
+          <mxCell parent="device_AIR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="GH1.25&lt;br&gt;4-pin&lt;br&gt;UART" kind="port" tooltip="Q11: Decide whether HM30 needs a direct FC UART or telemetry is forwarded through Pi/network; avoid duplicate command sources." comment="Decide whether HM30 needs a direct FC UART or telemetry is forwarded through Pi/network; avoid duplicate command sources." id="C15_b_port">
+          <mxCell parent="device_AIR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Verify battery range against HM30 variant and whether the optional power module is needed. Regulator is not yet selected." comment="Verify battery range against HM30 variant and whether the optional power module is needed. Regulator is not yet selected." id="P15_b_port">
+          <mxCell parent="device_AIR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;HM30 ground unit&lt;/b&gt;&lt;br&gt;Receives airborne link&lt;br&gt;&lt;br&gt;Radio · GROUND&lt;br&gt;Peer; control undecided&lt;br&gt;&lt;small&gt;S8; kit option Q09&lt;/small&gt;" component="GROUND" category="Radio" source="S8; kit option Q09" tooltip="Peer; control undecided | Slaves: None established" group="Telemetry" id="device_GROUND">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#D5E8D4;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="14421.760000000002" y="18774.4" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="RF&lt;br&gt;antenna" kind="port" tooltip="Q09: Confirm kit contents, pairing, antenna connector and local RF configuration. These are antenna interfaces." comment="Confirm kit contents, pairing, antenna connector and local RF configuration. These are antenna interfaces." id="C13_b_port">
+          <mxCell parent="device_GROUND" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q09: Consider LAN for video and telemetry. Manual lists LAN GH1.25 4-pin and Type-C datalink; choose actual computer and cable." comment="Consider LAN for video and telemetry. Manual lists LAN GH1.25 4-pin and Type-C datalink; choose actual computer and cable." id="C14_a_port">
+          <mxCell parent="device_GROUND" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;SIYI FPV hub&lt;/b&gt;&lt;br&gt;Candidate video network expansion&lt;br&gt;&lt;br&gt;Network · HUB&lt;br&gt;Peer; control undecided&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="HUB" category="Network" source="S1" tooltip="Peer; control undecided | Slaves: None established" group="Telemetry" id="device_HUB">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#D5E8D4;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="5923.84" y="18774.4" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q07: Determine if hub replaces switch, complements it, or is omitted. Do not assume dual-camera hub equals a general switch." comment="Determine if hub replaces switch, complements it, or is omitted. Do not assume dual-camera hub equals a general switch." id="C16_a_port">
+          <mxCell parent="device_HUB" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Confirm hub topology first, then power source and connector. Do not assume shared Ethernet power pins are compatible." comment="Confirm hub topology first, then power source and connector. Do not assume shared Ethernet power pins are compatible." id="P17_b_port">
+          <mxCell parent="device_HUB" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Ground computer&lt;/b&gt;&lt;br&gt;Displays status and video&lt;br&gt;&lt;br&gt;Control · GCS&lt;br&gt;Brain&lt;br&gt;Slaves: AIR/GROUND configuration proposed; Q09&lt;br&gt;&lt;small&gt;Proposed endpoint; Q09&lt;/small&gt;" component="GCS" category="Control" source="Proposed endpoint; Q09" tooltip="Brain | Slaves: AIR/GROUND configuration proposed; Q09" group="Telemetry" id="device_GCS">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#DAE8FC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="17254.4" y="18774.4" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q09: Consider LAN for video and telemetry. Manual lists LAN GH1.25 4-pin and Type-C datalink; choose actual computer and cable." comment="Consider LAN for video and telemetry. Manual lists LAN GH1.25 4-pin and Type-C datalink; choose actual computer and cable." id="C14_b_port">
+          <mxCell parent="device_GCS" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Battery — TBD&lt;/b&gt;&lt;br&gt;Stores flight energy&lt;br&gt;&lt;br&gt;Power · BAT&lt;br&gt;Supply&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="BAT" category="Power" source="S1" tooltip="Supply | Slaves: None established" group="Power system" id="device_BAT">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFF2CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="258.56000000000006" y="4969.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Select propulsion-compatible battery and verify PM07 input limits, current capacity and connector." comment="Select propulsion-compatible battery and verify PM07 input limits, current capacity and connector." id="P01_a_port">
+          <mxCell parent="device_BAT" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;PM07&lt;/b&gt;&lt;br&gt;Distributes and monitors power&lt;br&gt;&lt;br&gt;Power · PM&lt;br&gt;Supply; sensing owner undecided&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="PM" category="Power" source="S1" tooltip="Supply; sensing owner undecided | Slaves: None established" group="Power system" id="device_PM">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFF2CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="3091.2000000000003" y="4969.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Select propulsion-compatible battery and verify PM07 input limits, current capacity and connector." comment="Select propulsion-compatible battery and verify PM07 input limits, current capacity and connector." id="P01_b_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q14: Verify PM07 analog sensing, POWER harness and exact FC revision; sensor outputs are not a digital bus by default." comment="Verify PM07 analog sensing, POWER harness and exact FC revision; sensor outputs are not a digital bus by default." id="P02_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q15: Choose a flight-rated DC/DC supply after checking Jetson developer-kit carrier input and transient demand." comment="Choose a flight-rated DC/DC supply after checking Jetson developer-kit carrier input and transient demand." id="P03_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q16: Size converter for Pi demand, cable drop and startup; confirm battery operating range." comment="Size converter for Pi demand, cable drop and startup; confirm battery operating range." id="P05_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="202" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P7_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="302" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P8_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="402" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P9_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="502" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P10_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="2" y="-96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Select approved regulator/rail and cable; PM-to-camera row is functional allocation, not approval for direct battery power." comment="Select approved regulator/rail and cable; PM-to-camera row is functional allocation, not approval for direct battery power." id="P14_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="102" y="-96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Verify battery range against HM30 variant and whether the optional power module is needed. Regulator is not yet selected." comment="Verify battery range against HM30 variant and whether the optional power module is needed. Regulator is not yet selected." id="P15_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="202" y="-96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Choose actual switch and required regulator; do not infer PoE or passive powering." comment="Choose actual switch and required regulator; do not infer PoE or passive powering." id="P16_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="302" y="-96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q19: Confirm hub topology first, then power source and connector. Do not assume shared Ethernet power pins are compatible." comment="Confirm hub topology first, then power source and connector. Do not assume shared Ethernet power pins are compatible." id="P17_a_port">
+          <mxCell parent="device_PM" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="402" y="-96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Jetson supply&lt;/b&gt;&lt;br&gt;Regulates companion power&lt;br&gt;&lt;br&gt;Power · JPWR&lt;br&gt;Supply&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="JPWR" category="Power" source="S1" tooltip="Supply | Slaves: None established" group="Power system" id="device_JPWR">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFF2CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="5923.84" y="4969.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q15: Choose a flight-rated DC/DC supply after checking Jetson developer-kit carrier input and transient demand." comment="Choose a flight-rated DC/DC supply after checking Jetson developer-kit carrier input and transient demand." id="P03_b_port">
+          <mxCell parent="device_JPWR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q15: Confirm carrier-board input; do not apply module-level 5 V assumptions to the developer-kit connector." comment="Confirm carrier-board input; do not apply module-level 5 V assumptions to the developer-kit connector." id="P04_a_port">
+          <mxCell parent="device_JPWR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;Pi supply&lt;/b&gt;&lt;br&gt;Regulates mission computer power&lt;br&gt;&lt;br&gt;Power · PPWR&lt;br&gt;Supply&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="PPWR" category="Power" source="S1" tooltip="Supply | Slaves: None established" group="Power system" id="device_PPWR">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFF2CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="5923.84" y="3596.8" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q16: Size converter for Pi demand, cable drop and startup; confirm battery operating range." comment="Size converter for Pi demand, cable drop and startup; confirm battery operating range." id="P05_b_port">
+          <mxCell parent="device_PPWR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q16: Confirm USB-C current advertisement / PD behavior and actual maximum load." comment="Confirm USB-C current advertisement / PD behavior and actual maximum load." id="P06_a_port">
+          <mxCell parent="device_PPWR" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;XRotor 40A #1&lt;/b&gt;&lt;br&gt;Controls motor power&lt;br&gt;&lt;br&gt;Drive · ESC1&lt;br&gt;Slave proposed: FC; Brain&lt;br&gt;Slaves: M1 (proposed); Q12&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="ESC1" category="Drive" source="S1" tooltip="Slave proposed: FC; Brain | Slaves: M1 (proposed); Q12" group="Power system" id="device_ESC1">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="20087.04" y="2224" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P7_b_port">
+          <mxCell parent="device_ESC1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A1_b_port">
+          <mxCell parent="device_ESC1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M1_a_port">
+          <mxCell parent="device_ESC1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;XRotor 40A #2&lt;/b&gt;&lt;br&gt;Controls motor power&lt;br&gt;&lt;br&gt;Drive · ESC2&lt;br&gt;Slave proposed: FC; Brain&lt;br&gt;Slaves: M2 (proposed); Q12&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="ESC2" category="Drive" source="S1" tooltip="Slave proposed: FC; Brain | Slaves: M2 (proposed); Q12" group="Power system" id="device_ESC2">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="20087.04" y="4969.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P8_b_port">
+          <mxCell parent="device_ESC2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A2_b_port">
+          <mxCell parent="device_ESC2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M2_a_port">
+          <mxCell parent="device_ESC2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;XRotor 40A #3&lt;/b&gt;&lt;br&gt;Controls motor power&lt;br&gt;&lt;br&gt;Drive · ESC3&lt;br&gt;Slave proposed: FC; Brain&lt;br&gt;Slaves: M3 (proposed); Q12&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="ESC3" category="Drive" source="S1" tooltip="Slave proposed: FC; Brain | Slaves: M3 (proposed); Q12" group="Power system" id="device_ESC3">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="20087.04" y="3596.8" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P9_b_port">
+          <mxCell parent="device_ESC3" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A3_b_port">
+          <mxCell parent="device_ESC3" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M3_a_port">
+          <mxCell parent="device_ESC3" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;XRotor 40A #4&lt;/b&gt;&lt;br&gt;Controls motor power&lt;br&gt;&lt;br&gt;Drive · ESC4&lt;br&gt;Slave proposed: FC; Brain&lt;br&gt;Slaves: M4 (proposed); Q12&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="ESC4" category="Drive" source="S1" tooltip="Slave proposed: FC; Brain | Slaves: M4 (proposed); Q12" group="Power system" id="device_ESC4">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="20087.04" y="851.2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q12: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P10_b_port">
+          <mxCell parent="device_ESC4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q17: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A4_b_port">
+          <mxCell parent="device_ESC4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="102" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M4_a_port">
+          <mxCell parent="device_ESC4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="600" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;X4108S motor #1&lt;/b&gt;&lt;br&gt;Turns propeller for thrust&lt;br&gt;&lt;br&gt;Actuation · M1&lt;br&gt;Slave proposed: ESC1&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="M1" category="Actuation" source="S1" tooltip="Slave proposed: ESC1 | Slaves: None established" group="Structural system" id="device_M1">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="22919.68" y="2224" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M1_b_port">
+          <mxCell parent="device_M1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;X4108S motor #2&lt;/b&gt;&lt;br&gt;Turns propeller for thrust&lt;br&gt;&lt;br&gt;Actuation · M2&lt;br&gt;Slave proposed: ESC2&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="M2" category="Actuation" source="S1" tooltip="Slave proposed: ESC2 | Slaves: None established" group="Structural system" id="device_M2">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="22919.68" y="4969.6" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M2_b_port">
+          <mxCell parent="device_M2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;X4108S motor #3&lt;/b&gt;&lt;br&gt;Turns propeller for thrust&lt;br&gt;&lt;br&gt;Actuation · M3&lt;br&gt;Slave proposed: ESC3&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="M3" category="Actuation" source="S1" tooltip="Slave proposed: ESC3 | Slaves: None established" group="Structural system" id="device_M3">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="22919.68" y="3596.8" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M3_b_port">
+          <mxCell parent="device_M3" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="&lt;b&gt;X4108S motor #4&lt;/b&gt;&lt;br&gt;Turns propeller for thrust&lt;br&gt;&lt;br&gt;Actuation · M4&lt;br&gt;Slave proposed: ESC4&lt;br&gt;&lt;small&gt;S1&lt;/small&gt;" component="M4" category="Actuation" source="S1" tooltip="Slave proposed: ESC4 | Slaves: None established" group="Structural system" id="device_M4">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=27.2;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFE6CC;spacing=14;align=left;" vertex="1">
+            <mxGeometry height="600" width="600" x="22919.68" y="851.2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="UNDECIDED" kind="port" tooltip="Q18: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M4_b_port">
+          <mxCell parent="device_M4" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#FFFFFF;align=left;spacing=3;" vertex="1">
+            <mxGeometry height="96" width="96" x="-96" y="2" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C01 · UART · flight commands / telemetry&lt;br&gt;Application protocol UNDECIDED&lt;br&gt;&lt;small&gt;S2 · Q01&lt;/small&gt;" kind="protocol" source="S2" question="Q01" comment="Consider MAVLink or uXRCE-DDS; verify firmware, signal voltage, crossed TX/RX and ground. Confirm Pi header vs adapter." tooltip="S2 | Q01 | Suggestion: Consider MAVLink or uXRCE-DDS; verify firmware, signal voltage, crossed TX/RX and ground. Confirm Pi header vs adapter." id="C01_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="15765.119999999999" y="17122.56" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C02 · Position + compass data&lt;br&gt;Protocol UNDECIDED&lt;br&gt;&lt;small&gt;S2, S5 · Q05&lt;/small&gt;" kind="protocol" source="S2, S5" question="Q05" comment="Manufacturer lists JST-GH-6P and UBX/NMEA. Confirm delivered cable, FC GPS port and compass bus; do not infer a pin map." tooltip="S2, S5 | Q05 | Suggestion: Manufacturer lists JST-GH-6P and UBX/NMEA. Confirm delivered cable, FC GPS port and compass bus; do not infer a pin map." id="C02_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="15765.119999999999" y="11733.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C03 · ExpressLRS · 2.4 GHz&lt;br&gt;Binding / region UNDECIDED&lt;br&gt;&lt;small&gt;S1, S2, S6 · Q06&lt;/small&gt;" kind="protocol" source="S1, S2, S6" question="Q06" comment="Confirm ELRS transmitter variant, matching firmware and region. RF blocks are antenna interfaces, not cable sockets." tooltip="S1, S2, S6 | Q06 | Suggestion: Confirm ELRS transmitter variant, matching firmware and region. RF blocks are antenna interfaces, not cable sockets." id="C03_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="12932.48" y="17122.56" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C04 · Pilot input&lt;br&gt;CRSF OR S.Bus — UNDECIDED&lt;br&gt;&lt;small&gt;S2, S6 · Q06&lt;/small&gt;" kind="protocol" source="S2, S6" question="Q06" comment="Prefer a supported serial RC interface after checking PX4 configuration, inversion and exact pins; PWM is not automatically selected." tooltip="S2, S6 | Q06 | Suggestion: Prefer a supported serial RC interface after checking PX4 configuration, inversion and exact pins; PWM is not automatically selected." id="C04_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="15765.119999999999" y="12274.560000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C05 · ROS 2 detections over Ethernet&lt;br&gt;Logical path through SW&lt;br&gt;&lt;small&gt;S2 · Q07&lt;/small&gt;" kind="protocol" source="S2" question="Q07" comment="Confirm transport configuration and both network ports. This is a logical overlay, not an extra direct cable." tooltip="S2 | Q07 | Suggestion: Confirm transport configuration and both network ports. This is a logical overlay, not an extra direct cable." id="C05_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="12932.48" y="11666.560000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C06 · USB · Y16 image capture&lt;br&gt;Control protocol UNDECIDED&lt;br&gt;&lt;small&gt;S1, S2; S9 conditional · Q04&lt;/small&gt;" kind="protocol" source="S1, S2; S9 conditional" question="Q04" comment="Confirm MD 640 vs FlexMini, interface board and SDK. Consider USB UVC only after matching the delivered model." tooltip="S1, S2; S9 conditional | Q04 | Suggestion: Confirm MD 640 vs FlexMini, interface board and SDK. Consider USB UVC only after matching the delivered model." id="C06_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="10099.84" y="10584.960000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C07 · Ethernet · RTSP video supported&lt;br&gt;Project stream settings UNDECIDED&lt;br&gt;&lt;small&gt;S2, S7 · Q08&lt;/small&gt;" kind="protocol" source="S2, S7" question="Q08" comment="Confirm camera harness; select a compatible switch port. Ethernet capability does not imply RJ45 on the camera." tooltip="S2, S7 | Q08 | Suggestion: Confirm camera harness; select a compatible switch port. Ethernet capability does not imply RJ45 on the camera." id="C07_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="7267.200000000001" y="7109.760000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C08 · Ethernet · RGB / network traffic&lt;br&gt;&lt;small&gt;S2 · Q07&lt;/small&gt;" kind="protocol" source="S2" question="Q07" comment="Verify switch capacity and Jetson carrier connector. Consider standard RJ45 with a matching camera adapter harness." tooltip="S2 | Q07 | Suggestion: Verify switch capacity and Jetson carrier connector. Consider standard RJ45 with a matching camera adapter harness." id="C08_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="10099.84" y="11125.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C09 · Ethernet · ROS 2 detections&lt;br&gt;&lt;small&gt;S2 · Q07&lt;/small&gt;" kind="protocol" source="S2" question="Q07" comment="Confirm connector, IP addressing and data flow isolation. Four endpoints require at least four switch ports." tooltip="S2 | Q07 | Suggestion: Confirm connector, IP addressing and data flow isolation. Four endpoints require at least four switch ports." id="C09_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="10099.84" y="11743.36" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C10 · Ethernet · video / data&lt;br&gt;&lt;small&gt;S2, S8 §1.3 · Q08&lt;/small&gt;" kind="protocol" source="S2, S8 §1.3" question="Q08" comment="Verify cable pinout and integrated power pins before joining a generic switch to HM30." tooltip="S2, S8 §1.3 | Q08 | Suggestion: Verify cable pinout and integrated power pins before joining a generic switch to HM30." id="C10_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="10099.84" y="17967.36" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C11 · Gimbal / camera control UNDECIDED&lt;br&gt;Proposed ownership only&lt;br&gt;&lt;small&gt;S7 capability; no project choice · Q03&lt;/small&gt;" kind="protocol" source="S7 capability; no project choice" question="Q03" comment="Consider SIYI SDK over Ethernet; alternatively FC UART control. Select exactly one control authority and arbitrate manual input." tooltip="S7 capability; no project choice | Q03 | Suggestion: Consider SIYI SDK over Ethernet; alternatively FC UART control. Select exactly one control authority and arbitrate manual input." id="C11_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="12932.48" y="11125.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C12 · Storage bus UNDECIDED&lt;br&gt;Proposed Jetson ownership&lt;br&gt;&lt;small&gt;S1 · Q10&lt;/small&gt;" kind="protocol" source="S1" question="Q10" comment="Confirm card host, boot vs evidence storage, native slot vs USB reader and endurance." tooltip="S1 | Q10 | Suggestion: Confirm card host, boot vs evidence storage, native slot vs USB reader and endurance." id="C12_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="12932.48" y="6264.96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C13 · SIYI HM30 wireless link&lt;br&gt;Channel / mode UNDECIDED&lt;br&gt;&lt;small&gt;S8 · Q09&lt;/small&gt;" kind="protocol" source="S8" question="Q09" comment="Confirm kit contents, pairing, antenna connector and local RF configuration. These are antenna interfaces." tooltip="S8 | Q09 | Suggestion: Confirm kit contents, pairing, antenna connector and local RF configuration. These are antenna interfaces." id="C13_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="12932.48" y="17967.36" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C14 · Ground data / video transport&lt;br&gt;UNDECIDED&lt;br&gt;&lt;small&gt;S8 options; endpoint proposed · Q09&lt;/small&gt;" kind="protocol" source="S8 options; endpoint proposed" question="Q09" comment="Consider LAN for video and telemetry. Manual lists LAN GH1.25 4-pin and Type-C datalink; choose actual computer and cable." tooltip="S8 options; endpoint proposed | Q09 | Suggestion: Consider LAN for video and telemetry. Manual lists LAN GH1.25 4-pin and Type-C datalink; choose actual computer and cable." id="C14_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="15765.119999999999" y="20981.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C15 · Direct FC telemetry UNDECIDED&lt;br&gt;Optional path, not established&lt;br&gt;&lt;small&gt;S8 capability only · Q11&lt;/small&gt;" kind="protocol" source="S8 capability only" question="Q11" comment="Decide whether HM30 needs a direct FC UART or telemetry is forwarded through Pi/network; avoid duplicate command sources." tooltip="S8 capability only | Q11 | Suggestion: Decide whether HM30 needs a direct FC UART or telemetry is forwarded through Pi/network; avoid duplicate command sources." id="C15_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="18597.760000000002" y="10661.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="C16 · Interconnect / protocol UNDECIDED&lt;br&gt;Optional topology, not established&lt;br&gt;&lt;small&gt;S1 two products; S2 verify hub · Q07&lt;/small&gt;" kind="protocol" source="S1 two products; S2 verify hub" question="Q07" comment="Determine if hub replaces switch, complements it, or is omitted. Do not assume dual-camera hub equals a general switch." tooltip="S1 two products; S2 verify hub | Q07 | Suggestion: Determine if hub replaces switch, complements it, or is omitted. Do not assume dual-camera hub equals a general switch." id="C16_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="7267.200000000001" y="17967.36" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P01 · DC input · battery / connector UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q12&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q12" comment="Select propulsion-compatible battery and verify PM07 input limits, current capacity and connector." tooltip="Proposed topology from S1 functional roles | Q12 | Suggestion: Select propulsion-compatible battery and verify PM07 input limits, current capacity and connector." id="P01_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="1601.92" y="6264.96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P02 · Regulated FC supply + power sensing&lt;br&gt;Rail / signals UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q14&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q14" comment="Verify PM07 analog sensing, POWER harness and exact FC revision; sensor outputs are not a digital bus by default." tooltip="Proposed topology from S1 functional roles | Q14 | Suggestion: Verify PM07 analog sensing, POWER harness and exact FC revision; sensor outputs are not a digital bus by default." id="P02_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="8683.52" y="15909.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P03 · DC branch · input rail UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q15&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q15" comment="Choose a flight-rated DC/DC supply after checking Jetson developer-kit carrier input and transient demand." tooltip="Proposed topology from S1 functional roles | Q15 | Suggestion: Choose a flight-rated DC/DC supply after checking Jetson developer-kit carrier input and transient demand." id="P03_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="4434.56" y="6805.760000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P04 · Regulated DC · voltage UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q15&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q15" comment="Confirm carrier-board input; do not apply module-level 5 V assumptions to the developer-kit connector." tooltip="Proposed topology from S1 functional roles | Q15 | Suggestion: Confirm carrier-board input; do not apply module-level 5 V assumptions to the developer-kit connector." id="P04_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="8683.52" y="7109.760000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P05 · DC branch · input rail UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q16&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q16" comment="Size converter for Pi demand, cable drop and startup; confirm battery operating range." tooltip="Proposed topology from S1 functional roles | Q16 | Suggestion: Size converter for Pi demand, cable drop and startup; confirm battery operating range." id="P05_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="4434.56" y="6264.96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P06 · Regulated DC · 5 V supply proposed&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q16&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q16" comment="Confirm USB-C current advertisement / PD behavior and actual maximum load." tooltip="Proposed topology from S1 functional roles | Q16 | Suggestion: Confirm USB-C current advertisement / PD behavior and actual maximum load." id="P06_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="7267.200000000001" y="6264.96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P7 · Propulsion DC · rail UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q12&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q12" comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." tooltip="Proposed topology from S1 functional roles | Q12 | Suggestion: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P7_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="17181.44" y="21570.56" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P8 · Propulsion DC · rail UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q12&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q12" comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." tooltip="Proposed topology from S1 functional roles | Q12 | Suggestion: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P8_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="8683.52" y="22130.56" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P9 · Propulsion DC · rail UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q12&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q12" comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." tooltip="Proposed topology from S1 functional roles | Q12 | Suggestion: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P9_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="11516.16" y="22674.56" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P10 · Propulsion DC · rail UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q12&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q12" comment="Confirm battery, ESC voltage variant, distribution current and wiring before connecting." tooltip="Proposed topology from S1 functional roles | Q12 | Suggestion: Confirm battery, ESC voltage variant, distribution current and wiring before connecting." id="P10_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="17181.44" y="20997.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="A1 · Motor command protocol UNDECIDED&lt;br&gt;&lt;small&gt;S2 FC motor role; harness proposed · Q17&lt;/small&gt;" kind="protocol" source="S2 FC motor role; harness proposed" question="Q17" comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." tooltip="S2 FC motor role; harness proposed | Q17 | Suggestion: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A1_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="18597.760000000002" y="11743.36" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="A2 · Motor command protocol UNDECIDED&lt;br&gt;&lt;small&gt;S2 FC motor role; harness proposed · Q17&lt;/small&gt;" kind="protocol" source="S2 FC motor role; harness proposed" question="Q17" comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." tooltip="S2 FC motor role; harness proposed | Q17 | Suggestion: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A2_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="18597.760000000002" y="12824.960000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="A3 · Motor command protocol UNDECIDED&lt;br&gt;&lt;small&gt;S2 FC motor role; harness proposed · Q17&lt;/small&gt;" kind="protocol" source="S2 FC motor role; harness proposed" question="Q17" comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." tooltip="S2 FC motor role; harness proposed | Q17 | Suggestion: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A3_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="18597.760000000002" y="12284.160000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="A4 · Motor command protocol UNDECIDED&lt;br&gt;&lt;small&gt;S2 FC motor role; harness proposed · Q17&lt;/small&gt;" kind="protocol" source="S2 FC motor role; harness proposed" question="Q17" comment="Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." tooltip="S2 FC motor role; harness proposed | Q17 | Suggestion: Consider supported PWM only after verifying exact XRotor model and PX4 output configuration. Confirm channel-to-arm mapping." id="A4_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#EAF2F8;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="18597.760000000002" y="11202.560000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="M1 · Three-phase motor drive&lt;br&gt;Wiring / connector UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q18&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q18" comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." tooltip="Proposed topology from S1 functional roles | Q18 | Suggestion: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M1_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="21430.4" y="2508.16" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="M2 · Three-phase motor drive&lt;br&gt;Wiring / connector UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q18&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q18" comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." tooltip="Proposed topology from S1 functional roles | Q18 | Suggestion: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M2_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="21430.4" y="5253.76" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="M3 · Three-phase motor drive&lt;br&gt;Wiring / connector UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q18&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q18" comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." tooltip="Proposed topology from S1 functional roles | Q18 | Suggestion: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M3_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="21430.4" y="3880.96" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="M4 · Three-phase motor drive&lt;br&gt;Wiring / connector UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q18&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q18" comment="Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." tooltip="Proposed topology from S1 functional roles | Q18 | Suggestion: Match phase wiring and direction to arm assignment. This is switched motor power, not a communication protocol." id="M4_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="21430.4" y="1135.3600000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P11 · Peripheral supply UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q19&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q19" comment="Confirm FC port current budget and GNSS harness; document voltage and shared ground." tooltip="Proposed topology from S1 functional roles | Q19 | Suggestion: Confirm FC port current budget and GNSS harness; document voltage and shared ground." id="P11_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="18597.760000000002" y="13365.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P12 · Receiver supply UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q19&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q19" comment="Confirm receiver supply rail, port load budget and fail behavior; FC feed is only a proposal." tooltip="Proposed topology from S1 functional roles | Q19 | Suggestion: Confirm receiver supply rail, port load budget and fail behavior; FC feed is only a proposal." id="P12_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="18597.760000000002" y="13906.560000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P13 · USB power UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q04&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q04" comment="Verify exact interface board; never apply wide-range camera supply to USB power pins." tooltip="Proposed topology from S1 functional roles | Q04 | Suggestion: Verify exact interface board; never apply wide-range camera supply to USB power pins." id="P13_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="12932.48" y="10584.960000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P14 · Camera supply path UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q19&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q19" comment="Select approved regulator/rail and cable; PM-to-camera row is functional allocation, not approval for direct battery power." tooltip="Proposed topology from S1 functional roles | Q19 | Suggestion: Select approved regulator/rail and cable; PM-to-camera row is functional allocation, not approval for direct battery power." id="P14_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="4434.56" y="7772.160000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P15 · Radio supply path UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q19&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q19" comment="Verify battery range against HM30 variant and whether the optional power module is needed. Regulator is not yet selected." tooltip="Proposed topology from S1 functional roles | Q19 | Suggestion: Verify battery range against HM30 variant and whether the optional power module is needed. Regulator is not yet selected." id="P15_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="5850.880000000001" y="20069.760000000002" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P16 · Switch supply path UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q19&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q19" comment="Choose actual switch and required regulator; do not infer PoE or passive powering." tooltip="Proposed topology from S1 functional roles | Q19 | Suggestion: Choose actual switch and required regulator; do not infer PoE or passive powering." id="P16_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="7267.200000000001" y="10584.960000000001" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="P17 · Hub supply path UNDECIDED&lt;br&gt;&lt;small&gt;Proposed topology from S1 functional roles · Q19&lt;/small&gt;" kind="power" source="Proposed topology from S1 functional roles" question="Q19" comment="Confirm hub topology first, then power source and connector. Do not assume shared Ethernet power pins are compatible." tooltip="Proposed topology from S1 functional roles | Q19 | Suggestion: Confirm hub topology first, then power source and connector. Do not assume shared Ethernet power pins are compatible." id="P17_protocol">
+          <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24.0;fontColor=#172B4D;strokeColor=#64748B;fillColor=#F8CECC;align=left;spacing=10;" vertex="1">
+            <mxGeometry height="244.79999999999998" width="691.1999999999999" x="4434.56" y="16876.16" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="edge_C01_a" edge="1" parent="1" source="C01_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C01_protocol" tooltip="C01 | C01_a_port → C01_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="15701.12" y="14504.4" />
+              <mxPoint x="15701.12" y="17244.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C01_b" edge="1" parent="1" source="C01_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C01_b_port" tooltip="C01 | C01_protocol → C01_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="16608.32" y="17244.96" />
+              <mxPoint x="16608.32" y="13131.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C02_a" edge="1" parent="1" source="C02_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C02_protocol" tooltip="C02 | C02_a_port → C02_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="15697.12" y="13131.6" />
+              <mxPoint x="15697.12" y="11856.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C02_b" edge="1" parent="1" source="C02_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C02_b_port" tooltip="C02 | C02_protocol → C02_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="17134.4" y="11856.16" />
+              <mxPoint x="17134.4" y="13231.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C03_a" edge="1" parent="1" source="C03_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C03_protocol" tooltip="C03 | C03_a_port → C03_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12868.48" y="15877.2" />
+              <mxPoint x="12868.48" y="17244.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C03_b" edge="1" parent="1" source="C03_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C03_b_port" tooltip="C03 | C03_protocol → C03_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="14261.76" y="17244.96" />
+              <mxPoint x="14261.76" y="15877.2" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C04_a" edge="1" parent="1" source="C04_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C04_protocol" tooltip="C04 | C04_a_port → C04_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="15141.76" y="15877.2" />
+              <mxPoint x="15141.76" y="13175.6" />
+              <mxPoint x="15741.12" y="13175.6" />
+              <mxPoint x="15741.12" y="12396.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C04_b" edge="1" parent="1" source="C04_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C04_b_port" tooltip="C04 | C04_protocol → C04_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="17090.4" y="12396.96" />
+              <mxPoint x="17090.4" y="13331.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C05_a" edge="1" parent="1" source="C05_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C05_protocol" tooltip="C05 | C05_a_port → C05_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12908.48" y="9339.6" />
+              <mxPoint x="12908.48" y="11788.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C05_b" edge="1" parent="1" source="C05_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C05_b_port" tooltip="C05 | C05_protocol → C05_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="14257.76" y="11788.96" />
+              <mxPoint x="14257.76" y="14504.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C06_a" edge="1" parent="1" source="C06_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C06_protocol" tooltip="C06 | C06_a_port → C06_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="9486.72" y="7966.8" />
+              <mxPoint x="9486.72" y="10707.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C06_b" edge="1" parent="1" source="C06_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C06_b_port" tooltip="C06 | C06_protocol → C06_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="11429.12" y="10707.36" />
+              <mxPoint x="11429.12" y="9339.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C07_a" edge="1" parent="1" source="C07_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C07_protocol" tooltip="C07 | C07_a_port → C07_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7203.2" y="7966.8" />
+              <mxPoint x="7203.2" y="7232.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C07_b" edge="1" parent="1" source="C07_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C07_b_port" tooltip="C07 | C07_protocol → C07_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="8596.48" y="7232.16" />
+              <mxPoint x="8596.48" y="9339.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C08_a" edge="1" parent="1" source="C08_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C08_protocol" tooltip="C08 | C08_a_port → C08_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="10035.84" y="9339.6" />
+              <mxPoint x="10035.84" y="11248.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C08_b" edge="1" parent="1" source="C08_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C08_b_port" tooltip="C08 | C08_protocol → C08_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="10815.04" y="11248.16" />
+              <mxPoint x="10815.04" y="9439.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C09_a" edge="1" parent="1" source="C09_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C09_protocol" tooltip="C09 | C09_a_port → C09_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="9991.84" y="9439.6" />
+              <mxPoint x="9991.84" y="11865.76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C09_b" edge="1" parent="1" source="C09_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C09_b_port" tooltip="C09 | C09_protocol → C09_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12908.48" y="11865.76" />
+              <mxPoint x="12908.48" y="14604.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C10_a" edge="1" parent="1" source="C10_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C10_protocol" tooltip="C10 | C10_a_port → C10_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="9947.84" y="9539.6" />
+              <mxPoint x="9947.84" y="18089.76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C10_b" edge="1" parent="1" source="C10_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C10_b_port" tooltip="C10 | C10_protocol → C10_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="11429.12" y="18089.76" />
+              <mxPoint x="11429.12" y="18824.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C11_a" edge="1" parent="1" source="C11_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C11_protocol" tooltip="C11 | C11_a_port → C11_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12319.36" y="9439.6" />
+              <mxPoint x="12319.36" y="11248.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C11_b" edge="1" parent="1" source="C11_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C11_b_port" tooltip="C11 | C11_protocol → C11_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="13647.68" y="11248.16" />
+              <mxPoint x="13647.68" y="11394.56" />
+              <mxPoint x="8636.48" y="11394.56" />
+              <mxPoint x="8636.48" y="9383.6" />
+              <mxPoint x="5719.84" y="9383.6" />
+              <mxPoint x="5719.84" y="7966.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C12_a" edge="1" parent="1" source="C12_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C12_protocol" tooltip="C12 | C12_a_port → C12_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12393.12" y="9539.6" />
+              <mxPoint x="12393.12" y="9383.6" />
+              <mxPoint x="12319.36" y="9383.6" />
+              <mxPoint x="12319.36" y="6387.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C12_b" edge="1" parent="1" source="C12_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C12_b_port" tooltip="C12 | C12_protocol → C12_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="14261.76" y="6387.36" />
+              <mxPoint x="14261.76" y="7966.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C13_a" edge="1" parent="1" source="C13_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C13_protocol" tooltip="C13 | C13_a_port → C13_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12868.48" y="18824.4" />
+              <mxPoint x="12868.48" y="18089.76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C13_b" edge="1" parent="1" source="C13_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C13_b_port" tooltip="C13 | C13_protocol → C13_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="14257.76" y="18089.76" />
+              <mxPoint x="14257.76" y="18824.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C14_a" edge="1" parent="1" source="C14_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C14_protocol" tooltip="C14 | C14_a_port → C14_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="15697.12" y="18824.4" />
+              <mxPoint x="15697.12" y="21104.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C14_b" edge="1" parent="1" source="C14_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashed=0;" target="C14_b_port" tooltip="C14 | C14_protocol → C14_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="17090.4" y="21104.16" />
+              <mxPoint x="17090.4" y="18824.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C15_a" edge="1" parent="1" source="C15_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C15_protocol" tooltip="C15 | C15_a_port → C15_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="18445.76" y="13131.6" />
+              <mxPoint x="18445.76" y="10784.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C15_b" edge="1" parent="1" source="C15_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C15_b_port" tooltip="C15 | C15_protocol → C15_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="19312.96" y="10784.16" />
+              <mxPoint x="19312.96" y="11438.56" />
+              <mxPoint x="19400.96" y="11438.56" />
+              <mxPoint x="19400.96" y="17943.36" />
+              <mxPoint x="10815.04" y="17943.36" />
+              <mxPoint x="10815.04" y="18924.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C16_a" edge="1" parent="1" source="C16_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C16_protocol" tooltip="C16 | C16_a_port → C16_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7203.2" y="18824.4" />
+              <mxPoint x="7203.2" y="18089.76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_C16_b" edge="1" parent="1" source="C16_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C16_b_port" tooltip="C16 | C16_protocol → C16_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7982.4" y="18089.76" />
+              <mxPoint x="7982.4" y="9439.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P01_a" edge="1" parent="1" source="P01_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P01_protocol" tooltip="P01 | P01_a_port → P01_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1533.92" y="5019.6" />
+              <mxPoint x="1533.92" y="6387.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P01_b" edge="1" parent="1" source="P01_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P01_b_port" tooltip="P01 | P01_protocol → P01_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2927.2" y="6387.36" />
+              <mxPoint x="2927.2" y="5019.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P02_a" edge="1" parent="1" source="P02_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P02_protocol" tooltip="P02 | P02_a_port → P02_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4326.56" y="5019.6" />
+              <mxPoint x="4326.56" y="6884.16" />
+              <mxPoint x="4410.56" y="6884.16" />
+              <mxPoint x="4410.56" y="16032.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P02_b" edge="1" parent="1" source="P02_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P02_b_port" tooltip="P02 | P02_protocol → P02_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="11565.12" y="16032.16" />
+              <mxPoint x="11565.12" y="17391.36" />
+              <mxPoint x="17094.4" y="17391.36" />
+              <mxPoint x="17094.4" y="13431.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P03_a" edge="1" parent="1" source="P03_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P03_protocol" tooltip="P03 | P03_a_port → P03_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3811.2" y="5119.6" />
+              <mxPoint x="3811.2" y="6928.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P03_b" edge="1" parent="1" source="P03_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P03_b_port" tooltip="P03 | P03_protocol → P03_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5763.84" y="6928.16" />
+              <mxPoint x="5763.84" y="5019.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P04_a" edge="1" parent="1" source="P04_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P04_protocol" tooltip="P04 | P04_a_port → P04_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7159.2" y="5019.6" />
+              <mxPoint x="7159.2" y="7085.76" />
+              <mxPoint x="8619.52" y="7085.76" />
+              <mxPoint x="8619.52" y="7232.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P04_b" edge="1" parent="1" source="P04_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P04_b_port" tooltip="P04 | P04_protocol → P04_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="11385.12" y="7232.16" />
+              <mxPoint x="11385.12" y="9539.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P05_a" edge="1" parent="1" source="P05_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P05_protocol" tooltip="P05 | P05_a_port → P05_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4370.56" y="5219.6" />
+              <mxPoint x="4370.56" y="6387.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P05_b" edge="1" parent="1" source="P05_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P05_b_port" tooltip="P05 | P05_protocol → P05_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5719.84" y="6387.36" />
+              <mxPoint x="5719.84" y="3646.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P06_a" edge="1" parent="1" source="P06_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P06_protocol" tooltip="P06 | P06_a_port → P06_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7203.2" y="3646.8" />
+              <mxPoint x="7203.2" y="6387.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P06_b" edge="1" parent="1" source="P06_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P06_b_port" tooltip="P06 | P06_protocol → P06_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12315.36" y="6387.36" />
+              <mxPoint x="12315.36" y="6343.36" />
+              <mxPoint x="12908.48" y="6343.36" />
+              <mxPoint x="12908.48" y="7848.8" />
+              <mxPoint x="13691.68" y="7848.8" />
+              <mxPoint x="13691.68" y="11744.96" />
+              <mxPoint x="13647.68" y="11744.96" />
+              <mxPoint x="13647.68" y="14704.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P7_a" edge="1" parent="1" source="P7_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P7_protocol" tooltip="P7 | P7_a_port → P7_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3895.2" y="5319.6" />
+              <mxPoint x="3895.2" y="16808.16" />
+              <mxPoint x="6654.08" y="16808.16" />
+              <mxPoint x="6654.08" y="18980.4" />
+              <mxPoint x="11469.12" y="18980.4" />
+              <mxPoint x="11469.12" y="21692.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P7_b" edge="1" parent="1" source="P7_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P7_b_port" tooltip="P7 | P7_protocol → P7_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20807.04" y="21692.96" />
+              <mxPoint x="20807.04" y="2848" />
+              <mxPoint x="19967.04" y="2848" />
+              <mxPoint x="19967.04" y="2274" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P8_a" edge="1" parent="1" source="P8_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P8_protocol" tooltip="P8 | P8_a_port → P8_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4282.56" y="5419.6" />
+              <mxPoint x="4282.56" y="16852.16" />
+              <mxPoint x="5803.84" y="16852.16" />
+              <mxPoint x="5803.84" y="22252.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P8_b" edge="1" parent="1" source="P8_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P8_b_port" tooltip="P8 | P8_protocol → P8_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="16480.32" y="22252.96" />
+              <mxPoint x="16480.32" y="5019.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P9_a" edge="1" parent="1" source="P9_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P9_protocol" tooltip="P9 | P9_a_port → P9_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3939.2" y="5519.6" />
+              <mxPoint x="3939.2" y="16954.56" />
+              <mxPoint x="4410.56" y="16954.56" />
+              <mxPoint x="4410.56" y="22796.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P9_b" edge="1" parent="1" source="P9_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P9_b_port" tooltip="P9 | P9_protocol → P9_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20851.04" y="22796.96" />
+              <mxPoint x="20851.04" y="4220.8" />
+              <mxPoint x="19967.04" y="4220.8" />
+              <mxPoint x="19967.04" y="3646.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P10_a" edge="1" parent="1" source="P10_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P10_protocol" tooltip="P10 | P10_a_port → P10_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3141.2" y="4308.8" />
+              <mxPoint x="6654.08" y="4308.8" />
+              <mxPoint x="6654.08" y="10663.36" />
+              <mxPoint x="7243.2" y="10663.36" />
+              <mxPoint x="7243.2" y="15885.76" />
+              <mxPoint x="9432.48" y="15885.76" />
+              <mxPoint x="9432.48" y="18133.76" />
+              <mxPoint x="10075.84" y="18133.76" />
+              <mxPoint x="10075.84" y="17899.36" />
+              <mxPoint x="17134.4" y="17899.36" />
+              <mxPoint x="17134.4" y="21120.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P10_b" edge="1" parent="1" source="P10_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P10_b_port" tooltip="P10 | P10_protocol → P10_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="21406.4" y="21120.16" />
+              <mxPoint x="21406.4" y="1475.2" />
+              <mxPoint x="19967.04" y="1475.2" />
+              <mxPoint x="19967.04" y="901.2" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A1_a" edge="1" parent="1" source="A1_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A1_protocol" tooltip="A1 | A1_a_port → A1_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="18489.76" y="13231.6" />
+              <mxPoint x="18489.76" y="12450.56" />
+              <mxPoint x="18533.76" y="12450.56" />
+              <mxPoint x="18533.76" y="11865.76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A1_b" edge="1" parent="1" source="A1_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A1_b_port" tooltip="A1 | A1_protocol → A1_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="19839.04" y="11865.76" />
+              <mxPoint x="19839.04" y="2374" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A2_a" edge="1" parent="1" source="A2_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A2_protocol" tooltip="A2 | A2_a_port → A2_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="18533.76" y="13331.6" />
+              <mxPoint x="18533.76" y="12947.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A2_b" edge="1" parent="1" source="A2_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A2_b_port" tooltip="A2 | A2_protocol → A2_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="19927.04" y="12947.36" />
+              <mxPoint x="19927.04" y="5119.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A3_a" edge="1" parent="1" source="A3_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A3_protocol" tooltip="A3 | A3_a_port → A3_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="17984.64" y="13431.6" />
+              <mxPoint x="17984.64" y="12406.56" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A3_b" edge="1" parent="1" source="A3_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A3_b_port" tooltip="A3 | A3_protocol → A3_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="19883.04" y="12406.56" />
+              <mxPoint x="19883.04" y="3746.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A4_a" edge="1" parent="1" source="A4_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A4_protocol" tooltip="A4 | A4_a_port → A4_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="18485.76" y="13531.6" />
+              <mxPoint x="18485.76" y="13375.6" />
+              <mxPoint x="18573.76" y="13375.6" />
+              <mxPoint x="18573.76" y="13331.6" />
+              <mxPoint x="19312.96" y="13331.6" />
+              <mxPoint x="19312.96" y="11471.36" />
+              <mxPoint x="18533.76" y="11471.36" />
+              <mxPoint x="18533.76" y="11324.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_A4_b" edge="1" parent="1" source="A4_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#3B6489;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="A4_b_port" tooltip="A4 | A4_protocol → A4_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="19440.96" y="11324.96" />
+              <mxPoint x="19440.96" y="1001.2" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M1_a" edge="1" parent="1" source="M1_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M1_protocol" tooltip="M1 | M1_a_port → M1_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="21362.4" y="2274" />
+              <mxPoint x="21362.4" y="2630.56" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M1_b" edge="1" parent="1" source="M1_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M1_b_port" tooltip="M1 | M1_protocol → M1_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="22755.68" y="2630.56" />
+              <mxPoint x="22755.68" y="2274" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M2_a" edge="1" parent="1" source="M2_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M2_protocol" tooltip="M2 | M2_a_port → M2_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="21362.4" y="5019.6" />
+              <mxPoint x="21362.4" y="5376.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M2_b" edge="1" parent="1" source="M2_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M2_b_port" tooltip="M2 | M2_protocol → M2_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="22755.68" y="5376.16" />
+              <mxPoint x="22755.68" y="5019.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M3_a" edge="1" parent="1" source="M3_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M3_protocol" tooltip="M3 | M3_a_port → M3_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="21362.4" y="3646.8" />
+              <mxPoint x="21362.4" y="4003.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M3_b" edge="1" parent="1" source="M3_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M3_b_port" tooltip="M3 | M3_protocol → M3_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="22755.68" y="4003.36" />
+              <mxPoint x="22755.68" y="3646.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M4_a" edge="1" parent="1" source="M4_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M4_protocol" tooltip="M4 | M4_a_port → M4_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="21362.4" y="901.2" />
+              <mxPoint x="21362.4" y="1257.76" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_M4_b" edge="1" parent="1" source="M4_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="M4_b_port" tooltip="M4 | M4_protocol → M4_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="22755.68" y="1257.76" />
+              <mxPoint x="22755.68" y="901.2" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P11_a" edge="1" parent="1" source="P11_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P11_protocol" tooltip="P11 | P11_a_port → P11_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="18529.76" y="13631.6" />
+              <mxPoint x="18529.76" y="13488.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P11_b" edge="1" parent="1" source="P11_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P11_b_port" tooltip="P11 | P11_protocol → P11_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="19312.96" y="13488.16" />
+              <mxPoint x="19312.96" y="14175.36" />
+              <mxPoint x="14301.76" y="14175.36" />
+              <mxPoint x="14301.76" y="13131.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P12_a" edge="1" parent="1" source="P12_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P12_protocol" tooltip="P12 | P12_a_port → P12_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="17304.4" y="12961.6" />
+              <mxPoint x="17046.4" y="12961.6" />
+              <mxPoint x="17046.4" y="14028.96" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P12_b" edge="1" parent="1" source="P12_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P12_b_port" tooltip="P12 | P12_protocol → P12_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="19356.96" y="14028.96" />
+              <mxPoint x="19356.96" y="14430.4" />
+              <mxPoint x="14301.76" y="14430.4" />
+              <mxPoint x="14301.76" y="15833.2" />
+              <mxPoint x="14217.76" y="15833.2" />
+              <mxPoint x="14217.76" y="15977.2" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P13_a" edge="1" parent="1" source="P13_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P13_protocol" tooltip="P13 | P13_a_port → P13_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="12864.48" y="9639.6" />
+              <mxPoint x="12864.48" y="10707.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P13_b" edge="1" parent="1" source="P13_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P13_b_port" tooltip="P13 | P13_protocol → P13_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="13647.68" y="10707.36" />
+              <mxPoint x="13647.68" y="7892.8" />
+              <mxPoint x="8552.48" y="7892.8" />
+              <mxPoint x="8552.48" y="7966.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P14_a" edge="1" parent="1" source="P14_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P14_protocol" tooltip="P14 | P14_a_port → P14_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3241.2" y="4849.6" />
+              <mxPoint x="2971.2" y="4849.6" />
+              <mxPoint x="2971.2" y="7894.56" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P14_b" edge="1" parent="1" source="P14_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P14_b_port" tooltip="P14 | P14_protocol → P14_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5763.84" y="7894.56" />
+              <mxPoint x="5763.84" y="8066.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P15_a" edge="1" parent="1" source="P15_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P15_protocol" tooltip="P15 | P15_a_port → P15_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3341.2" y="4761.6" />
+              <mxPoint x="1577.92" y="4761.6" />
+              <mxPoint x="1577.92" y="20192.16" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P15_b" edge="1" parent="1" source="P15_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P15_b_port" tooltip="P15 | P15_protocol → P15_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="11425.12" y="20192.16" />
+              <mxPoint x="11425.12" y="19024.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P16_a" edge="1" parent="1" source="P16_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P16_protocol" tooltip="P16 | P16_a_port → P16_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3441.2" y="4849.6" />
+              <mxPoint x="5149.76" y="4849.6" />
+              <mxPoint x="5149.76" y="10707.36" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P16_b" edge="1" parent="1" source="P16_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P16_b_port" tooltip="P16 | P16_protocol → P16_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="8592.48" y="10707.36" />
+              <mxPoint x="8592.48" y="9539.6" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P17_a" edge="1" parent="1" source="P17_a_port" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P17_protocol" tooltip="P17 | P17_a_port → P17_protocol">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3541.2" y="4805.6" />
+              <mxPoint x="2317.12" y="4805.6" />
+              <mxPoint x="2317.12" y="16998.56" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_P17_b" edge="1" parent="1" source="P17_protocol" style="html=1;align=left;edgeStyle=none;rounded=0;strokeColor=#B85450;strokeWidth=2;endArrow=none;dashed=0;noEdgeStyle=1;orthogonal=1;curved=0;jumpStyle=arc;jumpSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="P17_b_port" tooltip="P17 | P17_protocol → P17_b_port">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5759.84" y="16998.56" />
+              <mxPoint x="5759.84" y="18824.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
