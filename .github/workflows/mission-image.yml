@@ -1,0 +1,34 @@
+name: Publish Pi mission image
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE: ghcr.io/rileyhop1/sar-mission
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build mission image
+        run: docker build -f docker/mission.Dockerfile -t "$IMAGE:$GITHUB_SHA" .
+
+      - name: Check ROS 2 CLI
+        run: docker run --rm "$IMAGE:$GITHUB_SHA" ros2 --help
+
+      - name: Sign in to GHCR
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish mission image
+        run: docker push "$IMAGE:$GITHUB_SHA"
