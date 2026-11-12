@@ -35,6 +35,8 @@ Validation will progress through software and simulation checks, bench integrati
 
 ## Start here
 
+New to the project? Follow [Setting Up Your Environment](environment/README.md) to prepare your development machine.
+
 1. Read the introduction above and the [repository README](https://github.com/RileyHop1/SAR_DRONE) for the project and code layout.
 2. Read the [software roadmap](software-roadmap.md) for goals, current work, and open decisions.
 3. Follow the [Git conventions](git-conventions.md) for branches, commits, and pull requests.
@@ -48,7 +50,7 @@ This is a provisional navigation structure for team review. Entries marked plann
 | Section | What readers should find | Current material |
 | --- | --- | --- |
 | Project overview | Purpose, goals, scope, operator workflow, and project status | This home page |
-| Getting started | Required tools, local setup, container builds, first ROS run, and troubleshooting | Planned |
+| Getting started | Required tools, local setup, container builds, first ROS run, and troubleshooting | [Environment setup](environment/README.md) |
 | Architecture and interfaces | System diagram, computer responsibilities, package structure, message definitions, and design decisions | Diagram tracked in JDR-32; website page planned |
 | Development guide | Git workflow, documentation-first development, testing workflow, naming, and formatting | [Git](git-conventions.md), [development](software-development-conventions.md), [C++](cpp-conventions.md), and [Python](python-conventions.md) conventions |
 | Simulation and testing | Gazebo/PX4 setup, test commands, scenarios, requirement traceability, and results | Practical guides planned |
