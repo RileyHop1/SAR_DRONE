@@ -20,4 +20,5 @@ nav:
       - Development Process: software-development-conventions.md
       - Git Conventions: git-conventions.md
       - C++ Conventions: cpp-conventions.md
+      - Check C++ Formatting and Naming: cpp-linting.md
       - Python Conventions: python-conventions.md

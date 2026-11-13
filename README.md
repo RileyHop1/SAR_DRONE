@@ -27,6 +27,7 @@ sar-drone/
 │   ├── sar_bringup/       # Launch files and ROS configuration
 │   └── sar_simulation/    # Gazebo worlds, models, and simulation setup
 ├── docker/               # Mission, vision, and simulation Dockerfiles
+├── scripts/              # Local and CI tooling, including C++ linting
 ├── deployment/
 │   ├── pi/               # Pi deployment configuration
 │   ├── jetson/           # Jetson deployment configuration
@@ -35,6 +36,10 @@ sar-drone/
 ├── .github/workflows/    # Automated checks and builds
 └── docs/                 # Project documentation
 ```
+
+## C++ checks
+
+From the repository root in the Jazzy container, run `python3 scripts/lint.py packages` after building with compiler database generation enabled. See the [C++ linting guide](docs/cpp-linting.md) for tool installation, build commands, and formatting options.
 
 ## Build and Deployment
 
