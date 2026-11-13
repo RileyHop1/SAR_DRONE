@@ -32,3 +32,5 @@ colcon test-result --verbose
 | `cpp_python_pubsub` | A Python subscriber receives the expected message from a C++ publisher. |
 
 Look for all three named checks in the test output. If colcon reports zero packages, run `colcon list --base-paths /ros_ws/packages` to confirm the package is discoverable. If CMake reports a missing dependency, check that you started the Jazzy container and use the dependencies declared in the package's `package.xml`.
+
+Once these checks pass, follow [Create a ROS 2 Package](../create-ros-package.md) to add a package to the workspace.

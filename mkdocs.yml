@@ -17,6 +17,7 @@ nav:
   - Project Planning:
       - Software Roadmap: software-roadmap.md
   - Contributing:
+      - Create a ROS 2 Package: create-ros-package.md
       - Development Process: software-development-conventions.md
       - Git Conventions: git-conventions.md
       - C++ Conventions: cpp-conventions.md
