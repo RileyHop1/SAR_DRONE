@@ -22,14 +22,15 @@ jobs:
             --workdir /ros_ws \
             ros:jazzy-ros-base-noble bash -ec '
               apt-get update
+              apt-get install -y clang-format clang-tidy
               rosdep update --rosdistro jazzy
-              rosdep install --from-paths packages/sar_environment_test \
-                --ignore-src --rosdistro jazzy -y
+              rosdep install --from-paths packages --ignore-src --rosdistro jazzy -y
 
               colcon build --base-paths packages \
-                --packages-select sar_environment_test \
-                --cmake-args -DBUILD_TESTING=ON
+                --cmake-args -DBUILD_TESTING=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
               source install/setup.bash
+
+              python3 scripts/lint.py packages
 
               test_status=0
               colcon test --base-paths packages \
