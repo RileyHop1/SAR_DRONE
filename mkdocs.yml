@@ -9,6 +9,11 @@ theme:
 
 nav:
   - Home: README.md
+  - Setting Up Your Environment:
+      - Start Here: environment/README.md
+      - Install and Verify Docker: environment/docker.md
+      - Start ROS 2 Jazzy: environment/ros-jazzy.md
+      - Verify Your Environment: environment/verify.md
   - Project Planning:
       - Software Roadmap: software-roadmap.md
   - Contributing:

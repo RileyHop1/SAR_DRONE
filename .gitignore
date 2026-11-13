@@ -1,2 +1,15 @@
 .venv-docs/
 site/
+
+# ROS 2 / colcon output
+/build/
+/install/
+/log/
+/packages/**/build/
+/packages/**/install/
+/packages/**/log/
+
+# Python test and bytecode caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
